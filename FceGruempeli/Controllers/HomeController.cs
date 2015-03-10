@@ -8,15 +8,25 @@ namespace FceGruempeli.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Gruempi()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult School()
         {
             ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+
+        public ActionResult Rules()
+        {
+            return View();
+        }
+
+        public ActionResult Schedule()
+        {
             return View();
         }
 
