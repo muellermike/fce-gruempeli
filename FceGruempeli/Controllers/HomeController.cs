@@ -15,8 +15,6 @@ namespace FceGruempeli.Controllers
 
         public ActionResult School()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 

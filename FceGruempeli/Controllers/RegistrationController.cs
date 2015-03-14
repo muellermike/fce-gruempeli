@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FceGruempeli.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,13 @@ namespace FceGruempeli.Controllers
     {
         // GET: Registration
         public ActionResult Index()
+        {
+            RegistrationViewModel viewModel = new RegistrationViewModel();
+
+            return View(viewModel);
+        }
+
+        public ActionResult Register(RegistrationViewModel viewModel)
         {
             return View();
         }
