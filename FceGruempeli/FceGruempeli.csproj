@@ -117,10 +117,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app\img\flyerBack.jpg" />
+    <Content Include="Content\app\img\flyerFront.jpg" />
     <Content Include="Content\app\img\logo.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -136,6 +138,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\app\css\style.less" />
+    <Content Include="Content\app\doc\GzD_Anmeldeformular_ST_2015.pdf" />
+    <Content Include="Content\app\doc\Gruppenplan15.pdf" />
+    <Content Include="Content\app\doc\Spielplan_Gruempeli_FCE_2015.pdf" />
+    <Content Include="Content\app\doc\Steilpass_2015.pdf" />
+    <None Include="Properties\PublishProfiles\gruempi-fce - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gruempi-fce - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -171,6 +180,9 @@
     <Content Include="Views\Home\Rules.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\Error.cshtml" />
+    <Content Include="Views\Registration\Success.cshtml" />
+    <Content Include="Views\Home\RankingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -178,6 +190,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FceGruempeli.Common\FceGruempeli.Common.csproj">
+      <Project>{1d7a50f1-951f-42f1-8099-39b479cd8e8b}</Project>
+      <Name>FceGruempeli.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FceGruempeli.DomainLayer\FceGruempeli.DomainLayer.csproj">
+      <Project>{bb3bfabe-664a-49f1-9730-a01dd8d90d81}</Project>
+      <Name>FceGruempeli.DomainLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

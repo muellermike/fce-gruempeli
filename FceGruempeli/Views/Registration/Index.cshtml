@@ -1,60 +1,66 @@
-﻿@model FceGruempeli.Models.RegistrationViewModel
+﻿@model FceGruempeli.ViewModels.RegistrationViewModel
 @{
-    ViewBag.Title = "Anmelden";
+    ViewBag.Title = "Anmeldung";
 }
-<h1 style="align-self:center">Anmelden</h1>
+<h1 style="align-self:center">Anmeldung</h1>
 <br />
-@using (Html.BeginForm("Register", "Registration", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    
+
     @Html.ValidationSummary(true)
 
     <div class="form-group">
         <label for="inputCompany" class="col-sm-2 control-label">Firma</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Company, new { @class="form-control"})
+            @Html.TextBoxFor(x => x.Requester.Company, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastName" class="col-sm-2 control-label">Name *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", @placeholder="Name", @required="required" })
+            @Html.TextBoxFor(x => x.Requester.LastName, new { @class = "form-control", @placeholder = "Name", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputFirstName" class="col-sm-2 control-label">Vorname *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", @placeholder = "Vorname", @required = "required" })
+            @Html.TextBoxFor(x => x.Requester.FirstName, new { @class = "form-control", @placeholder = "Vorname", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputStreet" class="col-sm-2 control-label">Strasse / NR *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Street, new { @class = "form-control", @placeholder = "Strasse", @required = "required" })
+            @Html.TextBoxFor(x => x.Requester.Street, new { @class = "form-control", @placeholder = "Strasse", @required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPlz" class="col-sm-2 control-label">PLZ *</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.Requester.Plz, new { @class = "form-control", min = "1000", max = "9999", @required = "required", @type = "number" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputCity" class="col-sm-2 control-label">Ort *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Ort", @required = "required" })
+            @Html.TextBoxFor(x => x.Requester.City, new { @class = "form-control", @placeholder = "Ort", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputPhone" class="col-sm-2 control-label">Telefon *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telefon", @required = "required" })
+            @Html.TextBoxFor(x => x.Requester.Phone, new { @class = "form-control", @placeholder = "Telefon", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputMobilePhone" class="col-sm-2 control-label">Mobil</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.MobilePhone, new { @class = "form-control", @placeholder = "Mobil" })
+            @Html.TextBoxFor(x => x.Requester.MobilePhone, new { @class = "form-control", @placeholder = "Mobil" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email", @required = "required" })
+            @Html.TextBoxFor(x => x.Requester.Email, new { @class = "form-control", @placeholder = "Email", @required = "required" })
         </div>
     </div>
     <br />
@@ -62,19 +68,33 @@
     <div class="form-group">
         <label for="inputTeamName" class="col-sm-2 control-label">Mannschaftsname *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.TeamName, new { @class = "form-control", @placeholder = "Mannschaftsname", @required = "required" })
+            @Html.TextBoxFor(x => x.Team.Name, new { @class = "form-control", @placeholder = "Mannschaftsname", @required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Kategorie</label>
+        <div class="col-sm-10 dropdown">
+            @Html.DropDownListFor(x => x.Team.Category, Model.Categories, new { @class="form-control"})
+            @*<select>
+                <option>ho</option>
+                <option>iii</option>
+                <option>whuut?</option>
+                <optgroup role="presentation" class="dropdown-header" label="Schülerturnier">
+                    <option>gaaay</option>
+                </optgroup>
+            </select>*@
         </div>
     </div>
     <div class="form-group">
         <label for="inputCaptain" class="col-sm-2 control-label">Captain *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Captain, new { @class = "form-control", @placeholder = "Captain", @required = "required" })
+            @Html.TextBoxFor(x => x.Team.Captain, new { @class = "form-control", @placeholder = "Captain", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         <label for="inputYear" class="col-sm-2 control-label">Jahrgang *</label>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Year, new { @class = "form-control", min = "1900", max = "2015", @required = "required" })
+            @Html.TextBoxFor(x => x.Team.Year, new { @class = "form-control", min = "1900", max = "2015", @required = "required", @type = "number" })
         </div>
     </div>
 
@@ -82,7 +102,7 @@
     <div class="form-group">
         <label for="inputRemarks" class="col-sm-2 control-label">Bemerkungen</label>
         <div class="col-sm-10">
-            @Html.TextAreaFor(x => x.Remarks, new { @class="form-control"})
+            @Html.TextAreaFor(x => x.Remarks, new { @class = "form-control" })
         </div>
     </div>
 
@@ -92,3 +112,98 @@
         </div>
     </div>
 }
+<br />
+Gleichzeitig mit der Einsendung dieses Anmeldeformulars muss die Anmelde gebühr überwiesen werden: IBAN: CH05 8137 8000 0001 4291 3, Vermerk Grümpelturnier.<br />
+Die Anmeldegebühren belaufen sich auf 70.00 CHF fürs Grümpi und 30.00 CHF fürs Schülerturnier.<br />
+<b>Wichtig: Unbedingt Mannschaftsname auf der Überweisung vermerken!<br />
+Die Anmeldung wird mit einem E-Mail bestätigt.</b>
+<br />
+<hr />
+<br />
+<h2>Kategorien</h2>
+<table class="table">
+    <tr>
+        <th>
+            Bezeichnung
+        </th>
+        <th>
+            Beschränkung
+        </th>
+        <th>
+            Spiele
+        </th>
+        <th>
+            Preis in CHF
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Plauschmannschaften
+        </td>
+        <td>
+            max. 1 Fussballer
+        </td>
+        <td>
+            Freitag
+        </td>
+        <td>
+            70.00
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Nichtfussballer
+        </td>
+        <td>
+            max. 3 Fussballer
+        </td>
+        <td>
+            Samstag Nachmittag
+        </td>
+        <td>
+            70.00
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Firmen
+        </td>
+        <td>
+            max. 3 Fussballer
+        </td>
+        <td>
+            Freitag
+        </td>
+        <td>
+            70.00
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sie &amp; Er
+        </td>
+        <td>
+            3 Damen / 3 Herren
+        </td>
+        <td>
+            Samstag Nachmittag
+        </td>
+        <td>
+            70.00
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fussball-Schülerturnier
+        </td>
+        <td>
+            separate Ausschreibung
+        </td>
+        <td>
+            Sonntag
+        </td>
+        <td>
+            30.00
+        </td>
+    </tr>
+</table>
