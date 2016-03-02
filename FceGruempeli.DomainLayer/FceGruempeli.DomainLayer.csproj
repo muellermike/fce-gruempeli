@@ -40,12 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\MailService.cs" />
     <Compile Include="Properties\SmtpGatewaySettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>SmtpGatewaySettings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\MailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FceGruempeli.Common\FceGruempeli.Common.csproj">

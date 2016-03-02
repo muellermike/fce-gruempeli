@@ -37,6 +37,9 @@
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "school" ? "active" : "")">
                             @Html.ActionLink("Schülerturnier", "school", "home")
                         </li>
+                        <li class="@((ViewContext.RouteData.Values["Controller"].ToString().ToLowerInvariant() == "registration" && ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "index") ? "active" : "")">
+                            @Html.ActionLink("Anmelden", "index", "registration")
+                        </li>
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "rankinglist" ? "active" : "")">
                             @Html.ActionLink("Rangliste", "rankinglist", "home")
                         </li>
@@ -45,6 +48,9 @@
                         </li>*@
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "rules" ? "active" : "")">
                             @Html.ActionLink("Reglement", "rules", "home")
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "history" ? "active" : "")">
+                            @Html.ActionLink("Vergangenes", "history", "home")
                         </li>
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString().ToLowerInvariant() == "contact" ? "active" : "")">
                             @Html.ActionLink("Kontakt", "contact", "home")
