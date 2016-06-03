@@ -13,8 +13,8 @@ namespace FceGruempeli.DomainLayer.Services
         public bool SendMail(Person person, Team team, string remarks)
         {
             MailMessage msg = new MailMessage();
-            msg.To.Add(new MailAddress("miki.mueller@hotmail.com", "FC Eschlikon"));
-            msg.From = new MailAddress("miki.mueller@hotmail.com", "FC Eschlikon");
+            msg.To.Add(new MailAddress("hetsch gärn", "blubber"));
+            msg.From = new MailAddress("hetsch gärn", "blubber");
             msg.Subject = "Grümpi16 - Anmeldung";
             var body = new StringBuilder("Eine neu grümpi-Anmeldung erhalten. <br /><br />Zur Person: <br />");
             body.AppendFormat("Vorname: {0}<br />", person.FirstName);
@@ -51,7 +51,7 @@ namespace FceGruempeli.DomainLayer.Services
 
             SmtpClient client = new SmtpClient();
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("fceschlikon@hotmail.com", "your password");
+            client.Credentials = new System.Net.NetworkCredential("ätschibäätsch", "äääätschibäätschii");
             client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "smtp.office365.com";
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
